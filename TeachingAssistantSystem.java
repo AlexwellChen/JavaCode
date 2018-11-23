@@ -3,8 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * This class implements teaching assistant system
@@ -20,8 +19,7 @@ public class TeachingAssistantSystem {
 
 	private List<Student> studentDatabase;
 
-	private static BufferedReader stdIn = new BufferedReader(
-			new InputStreamReader(System.in));
+	private static BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 
 	private static PrintWriter stdOut = new PrintWriter(System.out, true);
 
@@ -47,8 +45,7 @@ public class TeachingAssistantSystem {
 				displayCatalogTask();
 			} else if (choice == 2) {
 				try {
-					stdOut
-							.println("Please enter the code of the task you want to display>> ");
+					stdOut.println("Please enter the code of the task you want to display>> ");
 					int code = Integer.parseInt(stdIn.readLine());
 					displayTask(code);
 				} catch (NumberFormatException e) {
@@ -98,12 +95,9 @@ public class TeachingAssistantSystem {
 			try {
 				stdOut.println();
 				stdOut.print("[0] Quit\n" + "[1] Display the task catalog\n"
-						+ "[2] Display a task published by task code\n"
-						+ "[3] Display the current task\n"
-						+ "[4] Display the student database\n"
-						+ "[5] Display the task of a student by student code\n"
-						+ "[6] Register the current task\n"
-						+ "[7] Remove a student by student code\n"
+						+ "[2] Display a task published by task code\n" + "[3] Display the current task\n"
+						+ "[4] Display the student database\n" + "[5] Display the task of a student by student code\n"
+						+ "[6] Register the current task\n" + "[7] Remove a student by student code\n"
 						+ "[8] Remove a task  by task code\n" + "choice>> \n");
 				stdOut.flush();
 
@@ -140,29 +134,24 @@ public class TeachingAssistantSystem {
 	 * 
 	 * @return return the list of task
 	 * @throws ParseException
-	 *             if there are any errors in the process of the date
-	 *             transformation
+	 *             if there are any errors in the process of the date transformation
 	 */
 	private List<Task> loadCatalog() throws ParseException {
 		List<Task> taskList = new ArrayList<Task>();
-		Task math = new Homework(1, "Math", "math homework", "2018-09-18", 0,
-				"2018-09-21");
+		Task math = new Homework(1, "Math", "math homework", "2018-09-18", 0, "2018-09-21");
 		taskList.add(math);
-		Task algorithm = new Homework(2, "Algorithm", "algorithm homework",
-				"2018-09-15", 0, "2018-09-18");
+		Task algorithm = new Homework(2, "Algorithm", "algorithm homework", "2018-09-15", 0, "2018-09-18");
 		taskList.add(algorithm);
-		Task computerScience = new Experiment(3, "Computer Science",
-				"computer science experiment", "2018-09-13", 0, "2018-09-18", 2);
+		Task computerScience = new Experiment(3, "Computer Science", "computer science experiment", "2018-09-13", 0,
+				"2018-09-18", 2);
 		taskList.add(computerScience);
-		Task networkingProgramming = new Experiment(4, "Network Programming",
-				"network programming experiment", "2018-09-12", 0,
-				"2018-09-22", 4);
+		Task networkingProgramming = new Experiment(4, "Network Programming", "network programming experiment",
+				"2018-09-12", 0, "2018-09-22", 4);
 		taskList.add(networkingProgramming);
-		Task numericalAnalysis = new ClassroomTask(5, "Numerical Analysis",
-				"numerical analysis classroom task", "2018-09-6", 0);
+		Task numericalAnalysis = new ClassroomTask(5, "Numerical Analysis", "numerical analysis classroom task",
+				"2018-09-6", 0);
 		taskList.add(numericalAnalysis);
-		Task dataMining = new ClassroomTask(6, "Data Mining",
-				"data mining classroom task", "2018-09-3", 0);
+		Task dataMining = new ClassroomTask(6, "Data Mining", "data mining classroom task", "2018-09-3", 0);
 		taskList.add(dataMining);
 		return taskList;
 	}
@@ -176,18 +165,12 @@ public class TeachingAssistantSystem {
 		List<Student> studentList = new ArrayList<Student>();
 
 		Student thomas = new Student(1, "Thomas");
-		TaskScore thomasTaskScore_0 = new TaskScore(87, catalogTask.get(0),
-				thomas);
-		TaskScore thomasTaskScore_1 = new TaskScore(92, catalogTask.get(1),
-				thomas);
-		TaskScore thomasTaskScore_2 = new TaskScore(85, catalogTask.get(2),
-				thomas);
-		TaskScore thomasTaskScore_3 = new TaskScore(97, catalogTask.get(3),
-				thomas);
-		TaskScore thomasTaskScore_4 = new TaskScore(87, catalogTask.get(4),
-				thomas);
-		TaskScore thomasTaskScore_5 = new TaskScore(94, catalogTask.get(5),
-				thomas);
+		TaskScore thomasTaskScore_0 = new TaskScore(87, catalogTask.get(0), thomas);
+		TaskScore thomasTaskScore_1 = new TaskScore(92, catalogTask.get(1), thomas);
+		TaskScore thomasTaskScore_2 = new TaskScore(85, catalogTask.get(2), thomas);
+		TaskScore thomasTaskScore_3 = new TaskScore(97, catalogTask.get(3), thomas);
+		TaskScore thomasTaskScore_4 = new TaskScore(87, catalogTask.get(4), thomas);
+		TaskScore thomasTaskScore_5 = new TaskScore(94, catalogTask.get(5), thomas);
 		thomas.addTaskScore(thomasTaskScore_0);
 		thomas.addTaskScore(thomasTaskScore_1);
 		thomas.addTaskScore(thomasTaskScore_2);
@@ -197,18 +180,12 @@ public class TeachingAssistantSystem {
 		studentList.add(thomas);
 
 		Student james = new Student(2, "James");
-		TaskScore jamesTaskScore_0 = new TaskScore(84, catalogTask.get(0),
-				james);
-		TaskScore jamesTaskScore_1 = new TaskScore(98, catalogTask.get(1),
-				james);
-		TaskScore jamesTaskScore_2 = new TaskScore(83, catalogTask.get(2),
-				james);
-		TaskScore jamesTaskScore_3 = new TaskScore(95, catalogTask.get(3),
-				james);
-		TaskScore jamesTaskScore_4 = new TaskScore(80, catalogTask.get(4),
-				james);
-		TaskScore jamesTaskScore_5 = new TaskScore(97, catalogTask.get(5),
-				james);
+		TaskScore jamesTaskScore_0 = new TaskScore(84, catalogTask.get(0), james);
+		TaskScore jamesTaskScore_1 = new TaskScore(98, catalogTask.get(1), james);
+		TaskScore jamesTaskScore_2 = new TaskScore(83, catalogTask.get(2), james);
+		TaskScore jamesTaskScore_3 = new TaskScore(95, catalogTask.get(3), james);
+		TaskScore jamesTaskScore_4 = new TaskScore(80, catalogTask.get(4), james);
+		TaskScore jamesTaskScore_5 = new TaskScore(97, catalogTask.get(5), james);
 		james.addTaskScore(jamesTaskScore_0);
 		james.addTaskScore(jamesTaskScore_1);
 		james.addTaskScore(jamesTaskScore_2);
@@ -233,18 +210,12 @@ public class TeachingAssistantSystem {
 		studentList.add(kobe);
 
 		Student curry = new Student(4, "Curry");
-		TaskScore curryTaskScore_0 = new TaskScore(82, catalogTask.get(0),
-				curry);
-		TaskScore curryTaskScore_1 = new TaskScore(99, catalogTask.get(1),
-				curry);
-		TaskScore curryTaskScore_2 = new TaskScore(86, catalogTask.get(2),
-				curry);
-		TaskScore curryTaskScore_3 = new TaskScore(96, catalogTask.get(3),
-				curry);
-		TaskScore curryTaskScore_4 = new TaskScore(80, catalogTask.get(4),
-				curry);
-		TaskScore curryTaskScore_5 = new TaskScore(94, catalogTask.get(5),
-				curry);
+		TaskScore curryTaskScore_0 = new TaskScore(82, catalogTask.get(0), curry);
+		TaskScore curryTaskScore_1 = new TaskScore(99, catalogTask.get(1), curry);
+		TaskScore curryTaskScore_2 = new TaskScore(86, catalogTask.get(2), curry);
+		TaskScore curryTaskScore_3 = new TaskScore(96, catalogTask.get(3), curry);
+		TaskScore curryTaskScore_4 = new TaskScore(80, catalogTask.get(4), curry);
+		TaskScore curryTaskScore_5 = new TaskScore(94, catalogTask.get(5), curry);
 		curry.addTaskScore(curryTaskScore_0);
 		curry.addTaskScore(curryTaskScore_1);
 		curry.addTaskScore(curryTaskScore_2);
@@ -254,18 +225,12 @@ public class TeachingAssistantSystem {
 		studentList.add(curry);
 
 		Student durant = new Student(5, "Durant");
-		TaskScore durantTaskScore_0 = new TaskScore(88, catalogTask.get(0),
-				durant);
-		TaskScore durantTaskScore_1 = new TaskScore(93, catalogTask.get(1),
-				durant);
-		TaskScore durantTaskScore_2 = new TaskScore(85, catalogTask.get(2),
-				durant);
-		TaskScore durantTaskScore_3 = new TaskScore(92, catalogTask.get(3),
-				durant);
-		TaskScore durantTaskScore_4 = new TaskScore(87, catalogTask.get(4),
-				durant);
-		TaskScore durantTaskScore_5 = new TaskScore(91, catalogTask.get(5),
-				durant);
+		TaskScore durantTaskScore_0 = new TaskScore(88, catalogTask.get(0), durant);
+		TaskScore durantTaskScore_1 = new TaskScore(93, catalogTask.get(1), durant);
+		TaskScore durantTaskScore_2 = new TaskScore(85, catalogTask.get(2), durant);
+		TaskScore durantTaskScore_3 = new TaskScore(92, catalogTask.get(3), durant);
+		TaskScore durantTaskScore_4 = new TaskScore(87, catalogTask.get(4), durant);
+		TaskScore durantTaskScore_5 = new TaskScore(91, catalogTask.get(5), durant);
 		durant.addTaskScore(durantTaskScore_0);
 		durant.addTaskScore(durantTaskScore_1);
 		durant.addTaskScore(durantTaskScore_2);
@@ -275,18 +240,12 @@ public class TeachingAssistantSystem {
 		studentList.add(durant);
 
 		Student jordan = new Student(6, "Jordan");
-		TaskScore jordanTaskScore_0 = new TaskScore(82, catalogTask.get(0),
-				jordan);
-		TaskScore jordanTaskScore_1 = new TaskScore(96, catalogTask.get(1),
-				jordan);
-		TaskScore jordanTaskScore_2 = new TaskScore(83, catalogTask.get(2),
-				jordan);
-		TaskScore jordanTaskScore_3 = new TaskScore(98, catalogTask.get(3),
-				jordan);
-		TaskScore jordanTaskScore_4 = new TaskScore(81, catalogTask.get(4),
-				jordan);
-		TaskScore jordanTaskScore_5 = new TaskScore(96, catalogTask.get(5),
-				jordan);
+		TaskScore jordanTaskScore_0 = new TaskScore(82, catalogTask.get(0), jordan);
+		TaskScore jordanTaskScore_1 = new TaskScore(96, catalogTask.get(1), jordan);
+		TaskScore jordanTaskScore_2 = new TaskScore(83, catalogTask.get(2), jordan);
+		TaskScore jordanTaskScore_3 = new TaskScore(98, catalogTask.get(3), jordan);
+		TaskScore jordanTaskScore_4 = new TaskScore(81, catalogTask.get(4), jordan);
+		TaskScore jordanTaskScore_5 = new TaskScore(96, catalogTask.get(5), jordan);
 		jordan.addTaskScore(jordanTaskScore_0);
 		jordan.addTaskScore(jordanTaskScore_1);
 		jordan.addTaskScore(jordanTaskScore_2);
@@ -302,12 +261,10 @@ public class TeachingAssistantSystem {
 	 * 
 	 * @return current task
 	 * @throws ParseException
-	 *             if there are any errors in the process of the date
-	 *             transformation
+	 *             if there are any errors in the process of the date transformation
 	 */
 	private Task loadCurrentTask() throws ParseException {
-		Task task = new Homework(7, "Data Structure", "data structure task",
-				"2018-9-14", 1, "2018-9-18");
+		Task task = new Homework(7, "Data Structure", "data structure task", "2018-9-14", 1, "2018-9-18");
 		return task;
 	}
 
@@ -316,6 +273,45 @@ public class TeachingAssistantSystem {
 	 */
 	public void displayCatalogTask() {
 		/* PLACE YOUR CODE HERE */
+		for (int i = 0; i < catalogTask.size(); i++) {
+			// Object temp = catalogTask.get(i);
+			if (catalogTask.get(i) instanceof ClassroomTask) {
+				ClassroomTask temp = (ClassroomTask) catalogTask.get(i);
+				System.out.print("Classroom Task: ");
+				System.out.print("title = " + temp.title + ", ");
+				System.out.print("code = " + temp.code + ", ");
+				System.out.print("description = " + temp.description + ", ");
+				System.out.print("creationDate = " + temp.creationDate + ", ");
+				System.out.print("state = " + temp.state);
+				System.out.print("\n");
+			}
+
+			if (catalogTask.get(i) instanceof Homework) {
+				System.out.print("Homework: ");
+				Homework temp = (Homework) catalogTask.get(i);
+				System.out.print("title = " + temp.title + ", ");
+				System.out.print("code = " + temp.code + ", ");
+				System.out.print("description = " + temp.description + ", ");
+				System.out.print("creationDate = " + temp.creationDate + ", ");
+				System.out.print("state = " + temp.state + ", ");
+				System.out.print("deadline = " + temp.getDeadline());
+				System.out.print("\n");
+			}
+
+			if (catalogTask.get(i) instanceof Experiment) {
+				System.out.print("Experiment: ");
+				Experiment temp = (Experiment) catalogTask.get(i);
+				System.out.print("title = " + temp.title + ", ");
+				System.out.print("code = " + temp.code + ", ");
+				System.out.print("description = " + temp.description + ", ");
+				System.out.print("creationDate = " + temp.creationDate + ", ");
+				System.out.print("state = " + temp.state + ", ");
+				System.out.print("deadline = " + temp.getDeadline() + ", ");
+				System.out.print("numberOfJavaFile = " + temp.numberOfJavaFile);
+				System.out.print("\n");
+			}
+
+		}
 	}
 
 	/**
@@ -327,6 +323,43 @@ public class TeachingAssistantSystem {
 	 */
 	public void displayTask(int taskCode) throws IOException {
 		/* PLACE YOUR CODE HERE */
+		if (catalogTask.get(taskCode) instanceof Homework) {
+			Homework temp = (Homework) catalogTask.get(taskCode);
+			System.out.print("Homework: ");
+			System.out.print("title = " + temp.title + ", ");
+			System.out.print("code = " + temp.code + ", ");
+			System.out.print("description = " + temp.description + ", ");
+			System.out.print("creationDate = " + temp.creationDate + ", ");
+			System.out.print("state = " + temp.state + ", ");
+			System.out.print("deadline = " + temp.getDeadline());
+			System.out.print("\n");
+		}
+
+		if (catalogTask.get(taskCode) instanceof ClassroomTask) {
+			ClassroomTask temp = (ClassroomTask) catalogTask.get(taskCode);
+			System.out.print("Classroom Task: ");
+			System.out.print("title = " + temp.title + ", ");
+			System.out.print("code = " + temp.code + ", ");
+			System.out.print("description = " + temp.description + ", ");
+			System.out.print("creationDate = " + temp.creationDate + ", ");
+			System.out.print("state = " + temp.state);
+			System.out.print("\n");
+		}
+
+		if (catalogTask.get(taskCode) instanceof Experiment) {
+			Experiment temp = (Experiment) catalogTask.get(taskCode);
+			System.out.print("Experiment: ");
+			System.out.print("title = " + temp.title + ", ");
+			System.out.print("code = " + temp.code + ", ");
+			System.out.print("description = " + temp.description + ", ");
+			System.out.print("creationDate = " + temp.creationDate + ", ");
+			System.out.print("state = " + temp.state + ", ");
+			System.out.print("deadline = " + temp.getDeadline() + ", ");
+			System.out.print("numberOfJavaFile = " + temp.numberOfJavaFile);
+			System.out.print("\n");
+		}
+
+		// System.out.println(catalogTask.get(taskCode));
 	}
 
 	/**
@@ -354,15 +387,18 @@ public class TeachingAssistantSystem {
 	public void displayTaskList(int studentCode) {
 
 		/* PLACE YOUR CODE HERE */
+		Student add = studentDatabase.get(studentCode);
+		for (int i = 0; i < add.taskScorelist.size(); i++) {
+			System.out.println(add.taskScorelist.get(i).task.title);
+		}
 	}
 
 	/**
-	 * register the current task then the current task will be added to the
-	 * catalog of task and create a new current
+	 * register the current task then the current task will be added to the catalog
+	 * of task and create a new current
 	 * 
 	 * @throws ParseException
-	 *             if there are any errors in the process of the date
-	 *             transformation
+	 *             if there are any errors in the process of the date transformation
 	 */
 	public void registerCurrentTask() throws IOException {
 		Task currTask = readTask();
@@ -370,6 +406,8 @@ public class TeachingAssistantSystem {
 		while (currTask == null)
 			currTask = readTask();
 		/* PLACE YOUR CODE HERE */
+		currTask.setState(1);
+		System.out.println("register current task successfully!");
 
 	}
 
@@ -427,9 +465,19 @@ public class TeachingAssistantSystem {
 		}
 
 	}
-
+	/**
+	 * 
+	 * @param task
+	 */
 	public void removeTaskFromCatalog(Task task) {
-			/* PLACE YOUR CODE HERE */
+		/* PLACE YOUR CODE HERE */
+		for (Task x : catalogTask) {
+			if (x.getCode() == task.getCode()) {
+				catalogTask.remove(x);
+				break;
+			}
+		}
+		System.out.println("remove task successfully!");
 
 	}
 
@@ -485,6 +533,5 @@ public class TeachingAssistantSystem {
 		stdErr.println("There are no student with that code");
 		stdErr.flush();
 		return null;
-
 	}
 }
